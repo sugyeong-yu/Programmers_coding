@@ -1,0 +1,11 @@
+def solution(lottos, win_nums):
+    ranking={'6':1 ,'5':2,'4':3,'3':4,'2':5}
+    unknown=lottos.count(0)
+    count=0
+    for i in lottos:
+        if i in win_nums:
+            count+=1
+    high=ranking[str(count+unknown)] if (count+unknown) in [6,5,4,3,2] else 6
+    low=ranking[str(count)] if (count) in [6,5,4,3,2] else 6
+    answer=[high,low]
+    return answer
