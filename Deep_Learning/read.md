@@ -1,3 +1,6 @@
+- 딥러닝 헷갈리는 개념들
+
+
 ## 모델 파라미터
 - batch_Normalization : Gradient Vanishing/Gradient Exploding 을 방지하기 위한 방법 중 하나.
   - 불안정한 학습의 원인 -> Internal Covariance Shift 라고 주장. : 이는 각 층, Activation마다 input의 distribution이 달라지는 현상
