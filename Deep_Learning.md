@@ -5,3 +5,14 @@
   - 보통 학습 시 미니배치 단위로 데이터를 가져오는데 각 feature별로 평균,표준편차를 구한다음 norm해주고 scale factor와 shift factor를 이용해 새로운 값을 만들어준다.
   - 실제 적용에서는 특정 은닉층에 들어가기전 batch norm layer를 더해주어 input을 modify해준 뒤 새로운 값을 activation function으로 넣어준다.
   
+## keras의 validation split / sklearn의 train_test_split() 차이점
+- sklearn
+```
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                    test_size = 0.2,
+                                                    random_state = 1)
+```
+- 랜덤가능
+- train_test_split()
+- 랜덤 불가능
