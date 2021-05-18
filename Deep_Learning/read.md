@@ -19,3 +19,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 - 랜덤가능
 - train_test_split()
 - 랜덤 불가능
+
+## keras와 torch의 학습방식
+- keras
+  - model.compile(optimizer, loss_function ...)
+  - model.fit(epoch,validation_data,metrics=[accuracy]...) > 알아서 validation loss까지 계산
+  - model.eval() > 알아서 성능평가 loss와 acc
+  - 조기종료, checkpoint 모듈 사용가능
+- torch
+  - loss=f()
+  - optimizer=Adam()
+  - model.train()
+  - optimizer=zero_grad()
+  - loss.backward()
+  - optimizer.step()
+  - val_loss=loss(pred,target)> validation loss알아서 계산해야함.
+  - model.eval()
+  - 조기종료, checkpoint 모듈 사용불가능 > 알아서 함수로 짜야함. 
+  - val_loss=loss(pred,target)> 알아서 계산해야함.
