@@ -1,4 +1,4 @@
-# 데이터마이닝
+# Matlab 실습 (Data_mining_ 윤희남교수님 수업)
 Matlab을 이용한 여러 생체신호에 대한 분석에 대한 실습 코드
 
 - 8주차 : ECG신호 전처리 & peak detection
