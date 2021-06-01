@@ -29,7 +29,7 @@ SVMModel = fitcsvm(X,Y,'Standardize',true,'KernelFunction','RBF', 'KernelScale',
 CVSVMModel = crossval(SVMModel);
 classLoss = kfoldLoss(CVSVMModel)
 
-%%
+%% SVM가지고 다중분류를 할때
 clear all; close all; clc;
 
 load fisheriris
@@ -47,17 +47,20 @@ legend('Location','Northwest');
 ylabel('Sepal Width (cm)')
 legend('Observation','Support Vector')
 hold off
-
-SVMModels = cell(3,1);
+% 모델을 3개만들것
+%setosa와 setosa 아닌것 , 버즈니카인것과 버즈니카 아닌것....
+SVMModels = cell(3,1); % 모델을 3개만들어서 각각의 cell에다가 저장할것
 classes = unique(Y);
 rng(1); % For reproducibility
 
+%3개의 모델을 만듬
 for j = 1:numel(classes)
-    indx = strcmp(Y,classes(j)); % Create binary classes for each classifier
+    indx = strcmp(Y,classes(j)); % Create binary classes for each classifier, ex) setosa랑 같은걸 불러옴(같으면 1 아니면 0)
     SVMModels{j} = fitcsvm(X,indx,'ClassNames',[false true],'Standardize',true,...
         'KernelFunction','rbf','BoxConstraint',1);
 end
 
+%신경 x
 d = 0.02;
 [x1Grid,x2Grid] = meshgrid(min(X(:,1)):d:max(X(:,1)),...
     min(X(:,2)):d:max(X(:,2)));
@@ -65,12 +68,13 @@ xGrid = [x1Grid(:),x2Grid(:)];
 N = size(xGrid,1);
 Scores = zeros(N,numel(classes));
 
+%predict해보기
 for j = 1:numel(classes)
     [~,score] = predict(SVMModels{j},xGrid);
     Scores(:,j) = score(:,2); % Second column contains positive-class scores
 end
 
-[~,maxScore] = max(Scores,[],2);
+[~,maxScore] = max(Scores,[],2); % 3개의 모델 score중에 가장 큰 score를 갖는 class로
 
 figure
 h(1:3) = gscatter(xGrid(:,1),xGrid(:,2),maxScore,...
@@ -86,7 +90,7 @@ legend(h,{'setosa region','versicolor region','virginica region',...
 axis tight
 hold off
 
-%%
+%% SVM자동으로 하이퍼파라미터 최적화
 clear all; close all; clc;
 
 load ionosphere
@@ -95,4 +99,4 @@ rng default
 Mdl = fitcsvm(X,Y,'OptimizeHyperparameters','auto',...
     'HyperparameterOptimizationOptions',struct('AcquisitionFunctionName',...
     'expected-improvement-plus'))
-
+% svm은 연산량이 많음ㅇ 따라서 시간 되게오래 걸릴것

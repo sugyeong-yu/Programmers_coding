@@ -171,11 +171,11 @@ subplot(211); bar(label); axis tight;
 subplot(212); bar(TS_LABEL); axis tight;
 
 
-%% Random Forest
+%% Random Foe
 Mdl = TreeBagger(50,TR_SET, TR_LABEL,'OOBPrediction','On','Method','classification');
 
 label = predict(Mdl,TS_SET);
-label = str2num(cell2mat(label)); % treebagger은 cell형태로 반환해주므로 이를 metrix로 변환
+label = str2num(cell2mat(label));
 
 [result, table]=multi_kappa(TS_LABEL, label, [1, 2])
 
@@ -183,10 +183,10 @@ figure;
 subplot(211); bar(label); axis tight;
 subplot(212); bar(TS_LABEL); axis tight;
 
-%% SVM linear
+%%
 
 rng(1);
-SVMModel = fitcsvm(TR_SET, TR_LABEL,'KernelFunction', 'linear', 'Prior', [0.8 0.2], 'KernelScale','auto','Standardize',true, 'OutlierFraction',0.05);% 0.05는 약간의 여지를 준것 5%정도는 이상값일 수 있으니 이를 반영해서 모델을 만들어라 라는것
+SVMModel = fitcsvm(TR_SET, TR_LABEL,'KernelFunction', 'linear', 'Prior', [0.8 0.2], 'KernelScale','auto','Standardize',true, 'OutlierFraction',0.05);
 
 label = predict(SVMModel,TS_SET);
 
@@ -196,7 +196,7 @@ figure;
 subplot(211); bar(label); axis tight;
 subplot(212); bar(TS_LABEL); axis tight;
 
-%% SVM 최적의파라미터 자동화 (시간오래걸림)
+%%
 rng default
 Mdl = fitcsvm(TR_SET, TR_LABEL,'OptimizeHyperparameters','auto',...
     'HyperparameterOptimizationOptions',struct('AcquisitionFunctionName',...
