@@ -37,7 +37,8 @@
   - kappa값이 올라갔음\
   ![image](https://user-images.githubusercontent.com/70633080/120343052-56169100-c333-11eb-9834-107602509836.png)
 - 하이퍼파라미터 최적화 결과
-  - agreement / kappa :
+  - agreement / kappa : 0.8189 /0.2965\
+  ![image](https://user-images.githubusercontent.com/70633080/120344998-0df86e00-c335-11eb-9225-1aedfba3cbd4.png)
 
 ### [추가] 성능향상 방법
 - HRV지표를 각각 통계분석을 해서 유의한 지표만 가지고 수행
