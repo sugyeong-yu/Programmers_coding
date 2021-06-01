@@ -54,12 +54,45 @@
 % 다시 원점으로돌아와서 우리는 feature의 모습을 확인해봐야함! 
 
 ### Low data 분석
-
+- M_HR, LFHF, 수면 stage Data확인
 ![image](https://user-images.githubusercontent.com/70633080/120193464-6d804c00-c257-11eb-9110-fe39240ad94f.png)
+- 전반적으로 증가하는 추세를 보임. 
+- 그러나 REM일때와 NonREM일때 값의 차이가 별로 없음
+- 또한, REM일때와 NonREM일때 데이터의 y값(높이)에 균일성, 규칙성이 없음 
+- 해결책
+  - 1. smoothing
+  - 2. smoothing 크기를 300 등 크게 하면 높이가 울렁이는 트렌드를 뺄 수 있음
 
 ### After smoothing
+- smoothing 50 수행결과
+  - 빨간선이 smoothing결과\
+ ![image](https://user-images.githubusercontent.com/70633080/120301741-230ad800-c308-11eb-9819-b90cf817a5d0.png)
+- smoothing 300 수행결과
+  - 빨간선이 smoothing 결과\
+ ![image](https://user-images.githubusercontent.com/70633080/120301838-3cac1f80-c308-11eb-8144-188db7af3204.png)
 
-
+1. Knn 
+- 하이퍼파라미터 최적화 결과
+  - agreement / kappa : 0.8297 / 0.3491
+  - 스무딩전과  결과 유사\
+![image](https://user-images.githubusercontent.com/70633080/120306542-eab9c880-c30c-11eb-947f-d8041a76cb24.png)
+ 
+2. 나이브베이즈
+- 하이퍼파라미터 최적화 결과
+  - agreement / kappa : 0.8118 / 0.3570
+  - 스무딩 전보다 훨씬 좋아짐
+- qua 지정 결과
+  - agreement / kappa : 0.8129 / -0.0352
+3. 판별분석
+- 하이퍼파라미터 최적화 결과
+  - agreement / kappa : 0.8477 / 0.2258
+  - 스무딩 전보다 좋아짐
+4. 사전확률
+- **[0.9 , 0.1]**
+  - agreement / kappa : 0.8789 / 0.6347 
+- [0.8 , 0.2]
+  - agreement / kappa : 0.8189 / 0.5219
+  
 ## [추가] 성능 높일 수 있는 방법
 - HRV 10개를 이동평균을 계산
 - Non REM과 REM에 대해 각 지표들의 통계분석을 해봄.
