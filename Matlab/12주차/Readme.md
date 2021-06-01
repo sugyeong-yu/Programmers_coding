@@ -3,11 +3,11 @@
 ## Protocol
 1. HRV지표값 (Time / Freq) 계산
 2. Knn 사용하여 학습 
-  1. 하이퍼파라미터 최적화
-  2. qua
+    1. 하이퍼파라미터 최적화
+    2. qua
 3. 나이브베이즈로 학습
-  1. 하이퍼파라미터 최적화
-  2. qua
+    1. 하이퍼파라미터 최적화
+    2. qua
 4. 사전확률 조정 ( 일반적으로 전체수면중 Non-REM일 확률과 REM일 확률)
 ## 결과분석
 - multi-kappa() : 교수님이 직접 만든 함수, distance 계산
@@ -16,13 +16,13 @@
   - kappa는 보통 0.7~0.8이면 best performance
   - agreement의 경우 REM이 아닌 모든 수면단계를 Non-REM으로 묶게 되면 최소 80%이상 나온다. 따라서 의미가 없어짐. > kappa위주로 확인해야한다.
 
-1. Knn
+### 1. Knn
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8645 / 0.3502
   - kappa가 낮음.\
 ![image](https://user-images.githubusercontent.com/70633080/120194051-1038ca80-c258-11eb-9b75-7b316d0e7516.png)
 
-2. 나이브베이즈
+### 2. 나이브베이즈
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8513 / 0.0
   - kappa가 0 매우낮음\
@@ -37,13 +37,13 @@
   - 1. 하이퍼파라미터 자동조정 방식에서 문제가 발생했을 것 > 파라미터를 하나하나 보며 진행해야함
   - 2. 사전확률을 지정하여보자.
 
-3. 판별분석
+### 3. 판별분석
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8513 / 0.0
   - 나이브베이즈와 마찬가지\
  ![image](https://user-images.githubusercontent.com/70633080/120195213-7245ff80-c259-11eb-8ea9-072d08179a8b.png)
 
-4. 사전확률 조정
+### 4. 사전확률 조정
 - [0.9 , 0.1] 
   - agreement / kappa : 0.8489 / 0.4541
   - 전보다는 높아지긴 했지만 여전히 낮은 kappa값을 보임
@@ -53,7 +53,7 @@
 % 논램이라고 하는게 최적이라고 판단하고 훈련된것,,,
 % 다시 원점으로돌아와서 우리는 feature의 모습을 확인해봐야함! 
 
-### Low data 분석
+## Low data 분석
 - M_HR, LFHF, 수면 stage Data확인
 ![image](https://user-images.githubusercontent.com/70633080/120193464-6d804c00-c257-11eb-9110-fe39240ad94f.png)
 - 전반적으로 증가하는 추세를 보임. 
@@ -63,7 +63,7 @@
   - 1. smoothing
   - 2. smoothing 크기를 300 등 크게 하면 높이가 울렁이는 트렌드를 뺄 수 있음
 
-### After smoothing
+## After smoothing
 - smoothing 50 수행결과
   - 빨간선이 smoothing결과\
  ![image](https://user-images.githubusercontent.com/70633080/120301741-230ad800-c308-11eb-9819-b90cf817a5d0.png)
@@ -71,23 +71,23 @@
   - 빨간선이 smoothing 결과\
  ![image](https://user-images.githubusercontent.com/70633080/120301838-3cac1f80-c308-11eb-8144-188db7af3204.png)
 
-1. Knn 
+### 1. Knn 
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8297 / 0.3491
   - 스무딩전과  결과 유사\
 ![image](https://user-images.githubusercontent.com/70633080/120306542-eab9c880-c30c-11eb-947f-d8041a76cb24.png)
  
-2. 나이브베이즈
+### 2. 나이브베이즈
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8118 / 0.3570
   - 스무딩 전보다 훨씬 좋아짐
 - qua 지정 결과
   - agreement / kappa : 0.8129 / -0.0352
-3. 판별분석
+### 3. 판별분석
 - 하이퍼파라미터 최적화 결과
   - agreement / kappa : 0.8477 / 0.2258
   - 스무딩 전보다 좋아짐
-4. 사전확률
+### 4. 사전확률
 - **[0.9 , 0.1]**
   - agreement / kappa : 0.8789 / 0.6347 
 - [0.8 , 0.2]
