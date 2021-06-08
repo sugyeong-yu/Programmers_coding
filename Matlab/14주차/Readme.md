@@ -65,7 +65,9 @@ HRV_SET(:,6) = -HRV_SET(:,6);
 ![image](https://user-images.githubusercontent.com/70633080/121198567-2fb1a200-c8ad-11eb-8986-f2f0507e0a45.png)
 7. 120개의 조합 별로 kappa mean 구하고 가장 높은 kappa값의 조합을 찾기\
 ![image](https://user-images.githubusercontent.com/70633080/121198316-009b3080-c8ad-11eb-9b98-54f6a5af76c6.png)
-8. 가장 성능이 좋은 조합으로 REM NONREM classification\
+8. 가장 성능이 좋은 조합으로 REM NONREM classification
+  - kappa : 0.5488
+  - agree: 0.8405
 ![image](https://user-images.githubusercontent.com/70633080/121198815-64255e00-c8ad-11eb-9170-97247bcdb269.png)
 
 ### [추가]
