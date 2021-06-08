@@ -1,7 +1,8 @@
 clear all; close all; clc;
+% kmeans
 
 load fisheriris
-X = meas(:,3:4);
+X = meas(:,3:4); % 붓꽃데이터의 3,4 지표만 사용
 
 figure;
 plot(X(:,1),X(:,2),'k*','MarkerSize',5);
@@ -10,7 +11,7 @@ xlabel 'Petal Lengths (cm)';
 ylabel 'Petal Widths (cm)';
 
 rng(1); % For reproducibility
-[idx,C] = kmeans(X,3);
+[idx,C] = kmeans(X,3);%featyre, k 넣어주면 센터의 중심좌표 C, 어떻게 카테고리를 나누었는지 idx를 반환
 
 x1 = min(X(:,1)):0.01:max(X(:,1));
 x2 = min(X(:,2)):0.01:max(X(:,2));
@@ -31,7 +32,7 @@ ylabel 'Petal Widths (cm)';
 legend('Region 1','Region 2','Region 3','Data','Location','SouthEast');
 hold off;
 
-%%
+%% 랜덤한 데이터로 적용.
 clear all; close all; clc;
 
 rng default; % For reproducibility
@@ -57,7 +58,7 @@ legend('Cluster 1','Cluster 2','Centroids',...
 title 'Cluster Assignments and Centroids'
 hold off
 
-%%
+%% 클러스터 evaluation 
 clear all; close all; clc;
 
 load fisheriris
@@ -65,6 +66,7 @@ X = meas;
 y = categorical(species);
 
 eva = evalclusters(X,'kmeans','CalinskiHarabasz','KList',1:10)
+%optimal k가 1이라고 나옴 > 없는값이니까 무시하면됨
 
 figure; 
 plot(eva)
