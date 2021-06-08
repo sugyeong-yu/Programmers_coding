@@ -55,3 +55,18 @@ HRV_SET(:,6) = -HRV_SET(:,6);
   - 10개의 지표중 3개의 지표 경우의 수를 모두 만들고 이에 대해 각사람마다 수행 
   - 조합이 총 120개 > 4명이 각각 120번 수행
   - 인당 120개의 결과를 뽑은 후 전체 평균을 내서 어떤 지표의 조합일때 가장 결과가 좋은지를 알아보고자 함.
+
+1. HRV지표추출
+2. 지표 조합 구하기
+3. 각 조합 별 pca 수행
+4. PC1 smoothing, norm 
+5. 설정한 임계값보다 높으면 REM, 낮으면 Non REM
+6. 정답과의 kappa값 구하기\
+![image](https://user-images.githubusercontent.com/70633080/121198567-2fb1a200-c8ad-11eb-8986-f2f0507e0a45.png)
+7. 120개의 조합 별로 kappa mean 구하고 가장 높은 kappa값의 조합을 찾기\
+![image](https://user-images.githubusercontent.com/70633080/121198316-009b3080-c8ad-11eb-9b98-54f6a5af76c6.png)
+8. 가장 성능이 좋은 조합으로 REM NONREM classification\
+![image](https://user-images.githubusercontent.com/70633080/121198815-64255e00-c8ad-11eb-9170-97247bcdb269.png)
+
+### [추가]
+- 파라미터 설정 자유( 예제에서는 임계값 0.6사용)
