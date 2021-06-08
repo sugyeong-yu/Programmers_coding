@@ -50,7 +50,6 @@ figure;
 gscatter(score(:,1), score(:,2), Y_tr); hold on;
 gscatter(pca_res(:,1), pca_res(:,2), Y_ts, 'k', 'do*'); hold on;
 
-% 주성분 1만 넣고 knn train
 Mdl = fitcknn(score(:,1),Y_tr,'NumNeighbors',3,'Standardize',1);
 
-label = predict(Mdl,pca_res) % 주성분 1개만써도 결과 잘나옴을 보여줌.
+label = predict(Mdl,pca_res) 

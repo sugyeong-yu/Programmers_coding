@@ -139,7 +139,7 @@ for subj = 1:1:4
     for k=1:1:length(comb)
         [subj k]
         REM_FEATURE   =  Feature(:,comb(k,:));
-        [nSET_PARAM]  =  (REM_FEATURE-mean(REM_FEATURE))/std(REM_FEATURE); % normalization
+        [nSET_PARAM]  =  HN_DATA_VECTOR_NORMALIZATION(REM_FEATURE); % normalization
         [~,SCORE,~, ~, ~, ~]     =  pca(nSET_PARAM);%pca 수행
         
         %pca를 가져와서 smoothing하고 norm
@@ -174,7 +174,7 @@ Feature  =  TS_SET;
 LABEL    =  TS_LABEL;
 
 REM_FEATURE   =  Feature(:,comb(mi,:));
-[nSET_PARAM]  = (REM_FEATURE-mean(REM_FEATURE))/std(REM_FEATURE);;
+[nSET_PARAM]  =  HN_DATA_VECTOR_NORMALIZATION(REM_FEATURE);
 [~,SCORE,~, ~, ~, ~]     =  pca(nSET_PARAM);
 
 F_REM_TREND        =   smooth(SCORE(:, 1), 100, 'moving');%rloess
