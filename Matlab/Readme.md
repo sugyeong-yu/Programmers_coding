@@ -15,5 +15,5 @@ Matlab을 이용한 여러 생체신호에 대한 분석에 대한 실습 코드
   - paired t-test 사용
 - 두 집단에 유의한 차이가 있을 경우 회귀모델링
   - RPPG의 HRV지표값을 이용해 CPPG의 HRV지표값 예측하기.
-- [결과ppt](https://github.com/sugyeong-yu/TIL/blob/main/Matlab/%5B%EA%B8%B0%EB%A7%90%5DRPPG%20HRV%EB%A1%9C%20CPPG%20HRG%20%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0_%EA%B2%B0%EA%B3%BC.pdf)
+- [결과분석 및 발표 PPT](https://github.com/sugyeong-yu/TIL/blob/main/Matlab/%5B%EA%B8%B0%EB%A7%90%5DRPPG%20HRV%EB%A1%9C%20CPPG%20HRG%20%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0_%EA%B2%B0%EA%B3%BC.pdf)
 - [code](https://github.com/sugyeong-yu/TIL/blob/main/Matlab/final_project.m)
