@@ -12,10 +12,10 @@ for i = 1:h
     n= result(i).name;
     opts = detectImportOptions(n);
     preview(n,opts)
-    opts.SelectedVariableNames = {'c_lf'};
+    opts.SelectedVariableNames = {'c_lf_hf_ratio'};
     c=readmatrix(n,opts);
     c_feature(:,i)=c(1:11,:);
-    opts.SelectedVariableNames = {'r_lf'};
+    opts.SelectedVariableNames = {'r_lf_hf_ratio'};
     r=readmatrix(n,opts);
     r_feature(:,i)=r(1:11,:);
 
