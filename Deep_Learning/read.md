@@ -1,6 +1,12 @@
 - 딥러닝 헷갈리는 개념들
-
-
+## Image load
+1. Open cv
+2. PILLOW
+```
+file_path='D:\prlab\class\\2020-1(machin_learning)\data\\train\\real\\*.jpg'
+file_list=glob.glob(os.path.join(file_path))
+img= Image.open(self.imgs[index])
+```
 ## 모델 파라미터
 - batch_Normalization : Gradient Vanishing/Gradient Exploding 을 방지하기 위한 방법 중 하나.
   - 불안정한 학습의 원인 -> Internal Covariance Shift 라고 주장. : 이는 각 층, Activation마다 input의 distribution이 달라지는 현상
@@ -16,9 +22,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size = 0.2,
                                                     random_state = 1)
 ```
-- 랜덤가능
+  - 랜덤가능
 - train_test_split()
-- 랜덤 불가능
+  - 랜덤 불가능
 
 ## keras와 torch의 학습방식
 - keras
