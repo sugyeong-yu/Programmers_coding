@@ -26,7 +26,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 - train_test_split()
   - 랜덤 불가능
 
-## keras와 torch의 학습방식
+## Keras와 Torch 차이
+### keras와 torch의 학습방식
 - keras
   - model.compile(optimizer, loss_function ...)
   - model.fit(epoch,validation_data,metrics=[accuracy]...) > 알아서 validation loss까지 계산
@@ -43,3 +44,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
   - model.eval()
   - 조기종료, checkpoint 모듈 사용불가능 > 알아서 함수로 짜야함. 
   - val_loss=loss(pred,target)> 알아서 계산해야함.
+
+### Loss function
+- torch
+  - torch.nn.BCEloss
