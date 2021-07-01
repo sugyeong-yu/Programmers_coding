@@ -51,11 +51,19 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 ### model save & load
 - torch ``` torch.save()```
-  - 모델전체저장 ```torch.save(model, 'model.pt')```
+  - 모델전체저장
     - 모델 파라미터 뿐만아니라 optimizer, epoch, score 모두 저장 
     - 나중에 이어서 학습 or 권한이없는 사용자가 모델을 사용할 수 있도록 할때
-  - 모델의 state_dict()만 저장 ```torch.save(model.state_dict(), 'model.pt')```
+    ```
+    torch.save(model, 'model.pt')
+    torch.load('model.pt')
+    ```
+  - 모델의 state_dict()만 저장 
     - 학습가능한 매개변수가 담겨있는 dictionary 
     - 가중치와 편향을 저장. 
     - 코드상으로 모델이 구현되어 있는 경우에만 로드하는 방법을 통해 사용
-    - 용량이 
+    - 용량이 가벼움
+    ```
+    torch.save(model.state_dict(), 'model.pt')
+    torch.load_state_dict(torch.load('model.pt'))
+    ```
