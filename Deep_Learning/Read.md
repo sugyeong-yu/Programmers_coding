@@ -67,3 +67,34 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
     torch.save(model.state_dict(), 'model.pt')
     torch.load_state_dict(torch.load('model.pt'))
     ```
+### tensorboard 사용법
+```
+import torch
+from torch.utils.tensorboard import SummaryWriter
+writer=SummaryWriter()
+```
+- SumarryWriter instance를 생성해야한다.
+- Writer는 기본적으로 ```./runs/ ``` dir에 생성됨
+
+#### scalar 기록하기
+- 스칼라는 각 학습단계에서 손실 값, 각 에폭의 정확도를 저장하는데 도움을 준다.
+- 스칼라값 기록은 ``` add scalar(tag,scalar_value,global_step=None,walltime=None) ```을 사용한다.
+```
+for epoch in range(iter):
+  y1=model(x)
+  loss=criterion(y1,y)
+  writer.add_scalar("Loss/train",loss,epoch)
+  optimizer.zero_grad()
+  loss.backward()
+  optimizer.step()
+ writer.flush()
+ ```
+ - 모든 보류중인 이벤트가 디스크에 기록되었는지 확인하려면 flush()를 호출한다.
+ - Summary writer가 더이상 필요하지 않으면 close()를 호출한다. ```writer.close()```
+ #### TensorBoard 실행하기
+ ``` pip install tensorboard ```
+ - 위에서 설정한 루트로그dir을 지정하여 tensorboard를 시작한다. 
+ - logdir에는 tensorboard가 출력할 수 있는 이벤트 파일을 찾을  dir을 가르킨다.
+ ``` tensorboard --logdir=runs```
+ - 제공하는 url로 이동하거나 http://localhost:6006/ 으로 이동한다.
+ - 이 대시보드는 매 에폭마다 손실과 정확도가 어떻게 변화하는지 보여준다.
