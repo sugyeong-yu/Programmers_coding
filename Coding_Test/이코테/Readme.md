@@ -84,6 +84,7 @@ print("time", end_time-start_time)
 ``` array=[i for i in range(20) if i%2 ==1] ```
 ``` array=[[0]*m for _ in range(n)] ```
 - 리스트 관련 기타 메소드
+
 |함수명|사용법|설명|시간복잡도|
 |---|---|---|---|
 |append()|변수명.append()|리스트에 원소를 하나 삽입할때|O(1)|
@@ -92,4 +93,4 @@ print("time", end_time-start_time)
 |insert()|insert(삽입할 위치 인덱스, 삽입할 값)|특정 위치에 원소를 삽입할때|O(N)|
 |count()|변수명.count(특정 값)|리스트에서 특정값의 데이터 개수를 셀때|O(N)|
 |remove()|변수명.remove(특정 값)|특정값을 갖는 원소를 제거 , 여러개면 하나만 제거|
-- 
+
