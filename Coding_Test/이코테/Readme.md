@@ -94,3 +94,10 @@ print("time", end_time-start_time)
 |count()|변수명.count(특정 값)|리스트에서 특정값의 데이터 개수를 셀때|O(N)|
 |remove()|변수명.remove(특정 값)|특정값을 갖는 원소를 제거 , 여러개면 하나만 제거|
 
+- 리스트에서 특정값을 가지는 원소를 모두 제거하고자 할때 > 집합자료형 이용
+- 집합 자료형 : 특정값을 가지는 원소를 다루고자 할때 유용
+```
+a=[1,2,3,4,5,6]
+remove_set={3,5}
+result=[ i for i in a if i not in remove_set]
+```
