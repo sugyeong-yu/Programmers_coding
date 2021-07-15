@@ -1,5 +1,5 @@
 ## 목차
-1. [JAVA시작하기]()
+1. [JAVA시작하기](https://github.com/sugyeong-yu/TIL/blob/main/JAVA/Read.md#1-java-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
 2. [변수, 자료형, 주석]()
 3. 계산을위한 연산자
 4. 조건문과 반복문
